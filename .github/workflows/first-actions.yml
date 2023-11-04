@@ -18,7 +18,7 @@ jobs:
       run: docker buildx build -t ghcr.io/janakiprasadaws/github-actions-workflows/github-image:latest .
 
     - name: Authenticate with GitHub Container Registry
-      run: echo "${{ secrets.GHCR_PAT }}" 
+      run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u janakiprasadaws --password-stdin
       
     - name: Push Docker Image to GitHub Container Registry
       run: docker push ghcr.io/janakiprasadaws/github-actions-workflows/github-image:latest
