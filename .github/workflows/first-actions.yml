@@ -3,6 +3,7 @@ name: My First GitHub Actions
 on: [push]
 
 jobs:
+      GitHub-demo
   build:
     runs-on: ubuntu-latest 
 
