@@ -1,6 +1,6 @@
 #app.py
 #This is a commit
-def add(a, b):
+def add(a, b): 
   return a+b
 def test_add():
     assert add (1, 2) ==3
