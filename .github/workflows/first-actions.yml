@@ -22,6 +22,21 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest
 
+     -name: Install docker
+      uses: docker/setup-docker@v2
+        with:
+          docker-version: '20.10.7'  # Specify the desired Docker version
+
+      - name: Build Docker Image
+        run: docker build -t ghcr.io/USERNAME/GitHub-Actions-Workflows/github-image:your-tag .
+        working-directory: path/to/your/dockerfile
+
+      - name: Authenticate with GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u USERNAME --password-stdin
+
+      - name: Push Docker Image to GitHub Container Registry
+        run: docker push ghcr.io/USERNAME/GitHub-Actions-Workflows/github-image:your-tag
+
     - name: Run tests
       run: |
         cd src
