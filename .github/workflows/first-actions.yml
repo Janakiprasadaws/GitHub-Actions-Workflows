@@ -17,7 +17,7 @@ jobs:
 
     - name: Build Docker Image
       run: docker buildx build -t ghcr.io/Janakiprasadaws/GitHub-Actions-Workflows/github-image:latest .
-      working-directory: working-directory/dockerfile
+      working-directory: working-directory/Dockerfile
 
     - name: Authenticate with GitHub Container Registry
       run: echo "${{ secrets.GITHUB_TOKEN }}" 
