@@ -14,13 +14,12 @@ jobs:
           docker-version: '20.10.7'  # Specify the desired Docker version
 
     - name: Build Docker Image
-        run: docker build -t ghcr.io/Janakiprasadaws/GitHub-Actions-Workflows/github-image:your-tag .
-        working-directory: path/to/your/dockerfile
+        run: docker build -t ghcr.io/Janakiprasadaws/GitHub-Actions-Workflows/github-image:latest .
+        working-directory: working-directory/dockerfile
 
     - name: Authenticate with GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u Janakiprasadaws --password-stdin
-
+        run: echo "${{ secrets.GITHUB_TOKEN }}" 
     - name: Push Docker Image to GitHub Container Registry
-        run: docker push ghcr.io/Janakiprasadaw/GitHub-Actions-Workflows/github-image:your-tag
+        run: docker push ghcr.io/Janakiprasadaw/GitHub-Actions-Workflows/github-image:latest
 
     
