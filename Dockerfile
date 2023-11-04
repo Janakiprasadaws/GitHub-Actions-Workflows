@@ -1,16 +1,16 @@
-# Use the official Ubuntu image as the base
 FROM ubuntu:latest
 
-# Update package lists and install any necessary packages
-RUN apt-get update && \
-    apt-get install -y \
-    package1 \
-    package2 \
-    package3
+# Set the working directory in the image
+WORKDIR /app
 
-# Additional setup and configuration if needed
-# ...
+# Copy the files from the host file system to the image file system
+COPY . /app
 
-# Set the default command to run when the container starts
-CMD ["bash"]
+# Install the necessary packages
+RUN apt-get update && apt-get install -y python3 python3-pip
 
+# Set environment variables
+ENV NAME World
+
+# Run a command to start the application
+CMD ["python3", "app.py"]
