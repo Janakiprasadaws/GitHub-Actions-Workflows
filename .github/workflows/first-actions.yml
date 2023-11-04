@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest 
 
     steps:
-    -uses: actions/checkout@v3
+     uses: actions/checkout@v3
     -name: Install docker
-      uses: docker/setup-docker@v2
+     uses: docker/setup-docker@v2
         with:
           docker-version: '20.10.7'  # Specify the desired Docker version
 
